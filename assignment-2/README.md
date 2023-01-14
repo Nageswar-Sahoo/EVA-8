@@ -155,216 +155,93 @@ MNIST ("Modified National Institute of Standards and Technology") dataset of com
  
  Model Architecture 1 : With CNN and Linear NN at the last layer  
 
-         
-          Layer (type)               Output Shape         Param #
-         
-            Conv2d-1           [-1, 32, 26, 26]             320
-       BatchNorm2d-2           [-1, 32, 26, 26]              64
-         MaxPool2d-3           [-1, 32, 13, 13]               0
-            Conv2d-4           [-1, 32, 11, 11]           9,248
-       BatchNorm2d-5           [-1, 32, 11, 11]              64
-         MaxPool2d-6             [-1, 32, 5, 5]               0
-            Conv2d-7             [-1, 16, 3, 3]           4,624
-       BatchNorm2d-8             [-1, 16, 3, 3]              32
-           Dropout-9             [-1, 16, 3, 3]               0
-           Linear-10                   [-1, 20]           2,900
-      BatchNorm1d-11                   [-1, 20]              40
-          Dropout-12                   [-1, 20]               0
-           Linear-13                   [-1, 10]             210
+![image](https://user-images.githubusercontent.com/70502759/212446930-4278830f-1108-4b80-8b08-5a9a4f20f5f3.png)
 
-   
-     Total params: 17,502
-     Trainable params: 17,502
-     Non-trainable params: 0
-     Input size (MB): 0.00
-     Forward/backward pass size (MB): 0.44
-     Params size (MB): 0.07
-     Estimated Total Size (MB): 0.51
 
      Training Logs :
           
+               loss=0.25780144333839417 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.50it/s]
+
+      Test set: Average loss: 0.0711, Accuracy: 9785/10000 (97.850%)
+
+      loss=0.13843071460723877 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.31it/s]
+
+      Test set: Average loss: 0.0411, Accuracy: 9878/10000 (98.780%)
+
+      loss=0.1913510411977768 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.85it/s]
+
+      Test set: Average loss: 0.0365, Accuracy: 9877/10000 (98.770%)
+
+      loss=0.08599496632814407 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.57it/s]
+
+      Test set: Average loss: 0.0363, Accuracy: 9868/10000 (98.680%)
+
+      loss=0.14034642279148102 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.78it/s]
+
+      Test set: Average loss: 0.0305, Accuracy: 9896/10000 (98.960%)
+
+      loss=0.05263226106762886 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.59it/s]
+
+      Test set: Average loss: 0.0326, Accuracy: 9892/10000 (98.920%)
+
+      loss=0.057123538106679916 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 32.16it/s]
+
+      Test set: Average loss: 0.0277, Accuracy: 9908/10000 (99.080%)
+
+      loss=0.04599980637431145 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.71it/s]
+
+      Test set: Average loss: 0.0265, Accuracy: 9916/10000 (99.160%)
+
+      loss=0.09477110952138901 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.53it/s]
+
+      Test set: Average loss: 0.0265, Accuracy: 9909/10000 (99.090%)
+
+      loss=0.04694877564907074 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.56it/s]
+
+      Test set: Average loss: 0.0243, Accuracy: 9916/10000 (99.160%)
+
+      loss=0.007439501117914915 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.78it/s]
+
+      Test set: Average loss: 0.0273, Accuracy: 9901/10000 (99.010%)
+
+      loss=0.007313624490052462 batch_id=468: 100%|██████████| 469/469 [00:15<00:00, 30.11it/s]
+
+      Test set: Average loss: 0.0231, Accuracy: 9919/10000 (99.190%)
+
+      loss=0.06205302104353905 batch_id=468: 100%|██████████| 469/469 [00:15<00:00, 31.05it/s]
+
+      Test set: Average loss: 0.0250, Accuracy: 9921/10000 (99.210%)
+
+      loss=0.03933703526854515 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.52it/s]
+
+      Test set: Average loss: 0.0284, Accuracy: 9910/10000 (99.100%)
+
+      loss=0.11958245187997818 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.89it/s]
+
+      Test set: Average loss: 0.0261, Accuracy: 9910/10000 (99.100%)
+
+      loss=0.07976437360048294 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.71it/s]
+
+      Test set: Average loss: 0.0261, Accuracy: 9911/10000 (99.110%)
+
+      loss=0.02198120206594467 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.37it/s]
+
+      Test set: Average loss: 0.0230, Accuracy: 9922/10000 (99.220%)
+
+      loss=0.016140375286340714 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.68it/s]
+
+      Test set: Average loss: 0.0253, Accuracy: 9914/10000 (99.140%)
+
+      loss=0.020877815783023834 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.53it/s]
+
+      Test set: Average loss: 0.0262, Accuracy: 9917/10000 (99.170%)
+ 
+
           
-
-          loss=0.11460938304662704 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.27it/s]
-          
-          Test set: Average loss: 0.0748, Accuracy: 9829/10000 (98.29000%)
-
-          loss=0.04542025923728943 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.46it/s]
-
-          Test set: Average loss: 0.0482, Accuracy: 9870/10000 (98.70000%)
-
-          loss=0.029887935146689415 batch_id=468: 100%|██████████| 469/469 [00:18<00:00, 24.80it/s]
-
-          Test set: Average loss: 0.0348, Accuracy: 9893/10000 (98.93000%)
-
-          loss=0.07188840210437775 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.31it/s]
-
-          Test set: Average loss: 0.0334, Accuracy: 9903/10000 (99.03000%)
-
-          oss=0.030564427375793457 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.36it/s]
-
-          Test set: Average loss: 0.0317, Accuracy: 9901/10000 (99.01000%)
-
-          loss=0.04231233894824982 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.51it/s]
-
-          Test set: Average loss: 0.0299, Accuracy: 9906/10000 (99.06000%)
-
-          loss=0.0220263060182333 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.58it/s]
-
-          Test set: Average loss: 0.0282, Accuracy: 9912/10000 (99.12000%)
-
-          loss=0.06818337738513947 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.27it/s]
-
-          Test set: Average loss: 0.0308, Accuracy: 9904/10000 (99.04000%)
-
-          loss=0.008004291914403439 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.28it/s]
-
-          Test set: Average loss: 0.0241, Accuracy: 9929/10000 (99.29000%)
-
-          loss=0.09412095695734024 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.14it/s]
-
-          Test set: Average loss: 0.0258, Accuracy: 9923/10000 (99.23000%)
-
-          loss=0.02752997726202011 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.50it/s]
-
-          Test set: Average loss: 0.0248, Accuracy: 9920/10000 (99.20000%)
-
-          loss=0.017845870926976204 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.33it/s]
-
-          Test set: Average loss: 0.0278, Accuracy: 9914/10000 (99.14000%)
-
-          loss=0.011509638279676437 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.40it/s]
-
-          Test set: Average loss: 0.0274, Accuracy: 9915/10000 (99.15000%)
-
-           loss=0.008964160457253456 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.59it/s]
-
-          Test set: Average loss: 0.0259, Accuracy: 9918/10000 (99.18000%)
-
-          loss=0.004373638425022364 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.35it/s]
-
-          Test set: Average loss: 0.0241, Accuracy: 9931/10000 (99.31000%)
-
-          loss=0.004581995774060488 batch_id=468: 100%|██████████| 469/469 [00:18<00:00, 24.75it/s]
-
-          Test set: Average loss: 0.0270, Accuracy: 9918/10000 (99.18000%)
-
-          loss=0.0323546826839447 batch_id=468: 100%|██████████| 469/469 [00:19<00:00, 24.62it/s]
-
-          Test set: Average loss: 0.0262, Accuracy: 9923/10000 (99.23000%)
-      
-        Result 
-        Highest Accuracy with above architecture is around 99.2 to 99.3  
-   
- Model Architecture 2 : With CNN Only  
-
-
-        Layer (type)               Output Shape         Param #
-      
-            Conv2d-1           [-1, 16, 26, 26]             160
-       BatchNorm2d-2           [-1, 16, 26, 26]              32
-            Conv2d-3           [-1, 32, 24, 24]           4,640
-       BatchNorm2d-4           [-1, 32, 24, 24]              64
-         MaxPool2d-5           [-1, 32, 12, 12]               0
-            Conv2d-6           [-1, 10, 10, 10]           2,890
-       BatchNorm2d-7           [-1, 10, 10, 10]              20
-           Dropout-8           [-1, 10, 10, 10]               0
-         MaxPool2d-9             [-1, 10, 5, 5]               0
-           Conv2d-10             [-1, 10, 3, 3]             910
-          Dropout-11             [-1, 10, 3, 3]               0
-           Conv2d-12             [-1, 10, 1, 1]             910
-
-
-    Total params: 9,626
-    Trainable params: 9,626
-    Non-trainable params: 0
-    Input size (MB): 0.00
-    Forward/backward pass size (MB): 0.51
-    Params size (MB): 0.04
-    Estimated Total Size (MB): 0.55
-
-
-    Training Logs :
-
-    loss=0.46433839201927185 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.39it/s]
-
-    Test set: Average loss: 0.1001, Accuracy: 9772/10000 (97.72000%)
-
-    loss=0.08626820892095566 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.35it/s]
-
-    Test set: Average loss: 0.0743, Accuracy: 9832/10000 (98.32000%)
-
-    loss=0.3429888188838959 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.42it/s]
-
-    Test set: Average loss: 0.0626, Accuracy: 9860/10000 (98.60000%)
-
-    loss=0.18460418283939362 batch_id=937: 100%|██████████| 938/938 [00:30<00:00, 31.03it/s]
-
-    Test set: Average loss: 0.0694, Accuracy: 9841/10000 (98.41000%)
-
-    loss=0.649048388004303 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.73it/s]
-
-    Test set: Average loss: 0.0527, Accuracy: 9882/10000 (98.82000%)
-
-    loss=0.30559906363487244 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.59it/s]
-
-    Test set: Average loss: 0.0501, Accuracy: 9875/10000 (98.75000%)
-
-    loss=0.19007930159568787 batch_id=937: 100%|██████████| 938/938 [00:30<00:00, 31.16it/s]
-
-    Test set: Average loss: 0.0476, Accuracy: 9893/10000 (98.93000%)
-
-    loss=0.3587135672569275 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.71it/s]
-
-    Test set: Average loss: 0.0460, Accuracy: 9900/10000 (99.00000%)
-
-    loss=0.17629261314868927 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.55it/s]
-
-    Test set: Average loss: 0.0427, Accuracy: 9901/10000 (99.01000%)
-
-    loss=0.25937575101852417 batch_id=937: 100%|██████████| 938/938 [00:30<00:00, 31.21it/s]
-
-    Test set: Average loss: 0.0453, Accuracy: 9899/10000 (98.99000%)
-
-    loss=0.23561449348926544 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.38it/s]
-
-    Test set: Average loss: 0.0394, Accuracy: 9913/10000 (99.13000%)
-
-    loss=0.38856634497642517 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 32.01it/s]
-
-    Test set: Average loss: 0.0466, Accuracy: 9901/10000 (99.01000%)
-
-    loss=0.32567137479782104 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 32.18it/s]
-
-    Test set: Average loss: 0.0397, Accuracy: 9915/10000 (99.15000%)
-
-    loss=0.16761580109596252 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 32.12it/s]
-
-    Test set: Average loss: 0.0379, Accuracy: 9918/10000 (99.18000%)
-
-    loss=0.05048885568976402 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.63it/s]
-
-    Test set: Average loss: 0.0382, Accuracy: 9914/10000 (99.14000%)
-
-    loss=0.2934759259223938 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 32.15it/s]
-
-    Test set: Average loss: 0.0484, Accuracy: 9883/10000 (98.83000%)
-
-    loss=0.6970977783203125 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 32.03it/s]
-
-    Test set: Average loss: 0.0413, Accuracy: 9905/10000 (99.05000%)
-
-    loss=0.2091989666223526 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.96it/s]
-
-    Test set: Average loss: 0.0450, Accuracy: 9906/10000 (99.06000%)
-
-    loss=0.08812602609395981 batch_id=937: 100%|██████████| 938/938 [00:29<00:00, 31.89it/s]
-
-    Test set: Average loss: 0.0390, Accuracy: 9919/10000 (99.19000%)
 
       Result 
 
-      Highest Accuracy with above architecture is around 99.10 to 99.19  
+      Highest Accuracy with above architecture is around 99.10 to 99.22  
 
 
       
