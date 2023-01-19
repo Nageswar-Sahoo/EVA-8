@@ -29,49 +29,64 @@ Step 1:
 
              Model Summary : 
        
-        Layer (type)               Output Shape         Param #
+         ----------------------------------------------------------------
+         Layer (type)               Output Shape         Param #
+         ================================================================
+             Conv2d-1           [-1, 10, 26, 26]              90
+          BatchNorm2d-2           [-1, 10, 26, 26]              20
+              ReLU-3           [-1, 10, 26, 26]               0
+            Conv2d-4           [-1, 10, 24, 24]             900
+          BatchNorm2d-5           [-1, 10, 24, 24]              20
+              ReLU-6           [-1, 10, 24, 24]               0
+            Conv2d-7           [-1, 20, 22, 22]           1,800
+          BatchNorm2d-8           [-1, 20, 22, 22]              40
+              ReLU-9           [-1, 20, 22, 22]               0
+          MaxPool2d-10           [-1, 20, 11, 11]               0
+           Conv2d-11           [-1, 10, 11, 11]             200
+          BatchNorm2d-12           [-1, 10, 11, 11]              20
+             ReLU-13           [-1, 10, 11, 11]               0
+           Conv2d-14             [-1, 10, 9, 9]             900
+          BatchNorm2d-15             [-1, 10, 9, 9]              20
+             ReLU-16             [-1, 10, 9, 9]               0
+           Conv2d-17             [-1, 20, 7, 7]           1,800
+          BatchNorm2d-18             [-1, 20, 7, 7]              40
+             ReLU-19             [-1, 20, 7, 7]               0
+           Conv2d-20             [-1, 10, 7, 7]             200
+          BatchNorm2d-21             [-1, 10, 7, 7]              20
+             ReLU-22             [-1, 10, 7, 7]               0
+           Conv2d-23             [-1, 10, 1, 1]           4,900
+        ================================================================
+        Total params: 10,970
+        Trainable params: 10,970
+        Non-trainable params: 0
+        ----------------------------------------------------------------
+       Input size (MB): 0.00
+       Forward/backward pass size (MB): 0.61
+       Params size (MB): 0.04
+       Estimated Total Size (MB): 0.65
+       ----------------------------------------------------------------
 
-            Conv2d-1           [-1, 16, 26, 26]             144
-              ReLU-2           [-1, 16, 26, 26]               0
-            Conv2d-3           [-1, 32, 24, 24]           4,608
-              ReLU-4           [-1, 32, 24, 24]               0
-            Conv2d-5           [-1, 64, 22, 22]          18,432
-              ReLU-6           [-1, 64, 22, 22]               0
-         MaxPool2d-7           [-1, 64, 11, 11]               0
-            Conv2d-8           [-1, 16, 11, 11]           1,024
-              ReLU-9           [-1, 16, 11, 11]               0
-           Conv2d-10             [-1, 64, 9, 9]           9,216
-             ReLU-11             [-1, 64, 9, 9]               0
-           Conv2d-12             [-1, 64, 7, 7]          36,864
-             ReLU-13             [-1, 64, 7, 7]               0
-           Conv2d-14             [-1, 10, 7, 7]             640
-             ReLU-15             [-1, 10, 7, 7]               0
-           Conv2d-16             [-1, 10, 1, 1]           4,900
- 
-     Total params: 75,828
-     Trainable params: 75,828
-     Non-trainable params: 0
-     Input size (MB): 0.00
-     Forward/backward pass size (MB): 1.14
-     Params size (MB): 0.29
-     Estimated Total Size (MB): 1.43
+    Target :
+    -------
+    
+     1 - Set Data Loader
 
-     2 - Set Data Loader
+     2 - Set Basic Working Code
 
-     3 - Set Basic Working Code
-
-     4 - Set Basic Training & Test Loop
+     3 - Set Basic Training & Test Loop
+     
+     4 - apply the normalization for input image along with batch normalization
 
      5 - Results:
 
-         1 - Parameters: 75,828
-         2 - Best Training Accuracy: 99.16
-         3 - Best Test Accuracy: 98.72
+         1 - Parameters: 10,970
+         2 - Best Training Accuracy: 99.75
+         3 - Best Test Accuracy: 99.29
 
      6 - Inference:
 
-         1 - Model Parameters is more and it's a heavy model . 
-         2 - Model is over-fitting , we will make our model lighter in next step
+         1 - 
+         2 - Model is slightly over-fitting as traing accuracy is high and if gap between training accuracy is more , if we increase training accuracy             also we will not acive accuracy of 99.4%  
 
 
 Step 2 : 
