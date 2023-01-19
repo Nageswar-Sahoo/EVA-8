@@ -85,17 +85,19 @@ Step 1:
 
      6 - Inference:
 
-         1 - 
-         2 - Model is slightly over-fitting as traing accuracy is high and if gap between training accuracy is more , if we increase training accuracy             also we will not acive accuracy of 99.4%  
-
+  
+         1 - Model is slightly over-fitting as traing accuracy is high and  gap between training and testing accuracy is more ,
+             if we increase training accuracy also we will not acive accuracy of 99.4%  
+    
+         
 
 Step 2 : 
     
 
     1 - Changes done:
 
-         1 - Added Batch-norm to increase model efficiency and make learning easier.
-             There is overfitting, hence added Regularization with the help of  Dropout , which interns help us in reducing overfitting
+         1 - There is overfitting, hence added Regularization with the help of  Dropout , which interns help us in reducing overfitting.
+             Also adding gap layer to remove the large kernel layer from last
 
            Model Summary : 
     
