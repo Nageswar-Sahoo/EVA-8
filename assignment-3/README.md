@@ -88,8 +88,11 @@ Step 1:
   
          1 - Model is slightly over-fitting as traing accuracy is high and  gap between training and testing accuracy is more ,
              if we increase training accuracy also we will not acive accuracy of 99.4%  
-    
-         
+         2 - Also from loss and accuracy diagram its looks like learning rate is bit high as its fluctuating 
+             
+             
+ ![image](https://user-images.githubusercontent.com/70502759/213490135-c4a9c00b-230a-4911-865e-dd2a2270863d.png)
+
 
 Step 2 : 
     
