@@ -1,141 +1,4 @@
-
-# S4
-
-----------------------------------------------------PART- 1 -----------------------------------------------------
-
-
-
-  Neural Network Architecture 
- 
-  ![image](https://user-images.githubusercontent.com/53977148/137504158-274818a2-750e-424e-b49b-1e9ca7273972.png)
-
-
-  Forward Propagation Details 
-
-  We can calculate an output from a neural network by propagating an input signal through each layer until the output layer .We call this forward- propagation.We work through each layer of our network calculating the outputs for each neuron. All of the outputs from one layer become inputs to the neurons on the next layer.
-  
-Details Mathematical Calculation as below :
-
-    input1=i1
-    input2=i2
-    actual_output=t1
-    actual_output=t2
-    h1=i1*w1+i2*w2
-    h2=i1*w3+i2*w4
-    act_h1=sigmoid(h1)
-    act_h2=sigmoid(h2)
-    o1= act_h1*w5 + act_h2*w6
-    o2= act_h1*w7 + act_h2*w8
-    act_o1=sigmoid(o1)
-    act_o2=sigmoid(o2)
-    E1=1/2*( t1 - act_o1)2
-    E2=1/2*(t2 - act_o2)2
-    E_total=E1+E2
-    sigmoid(x)=(1/1+exp(-x))
-
-
-  Back Propagation Details  
-  
-   The backpropagation algorithm is named for the way in which weights are trained.Error is calculated between the actual outputs labels and the outputs labels forward propagated from the network. These errors are then propagated backward through the network from the output layer to the hidden layer, updating weights as they go.
-
-Details Mathematical Calculation as below :
-
-    dsigmoid(x)/dx=sigmoid(x)*(1-sigmoid(x))
-    dEtotal/dw5= d(E1+E2)/dw5= dE1/dact_o1*dact_o1/do1*do1/dw5	
-    dE1/dact_o1=0.5*2*(t1 - act_o1)*-1 =act_o1 - t1		
-    dact_o1/do1=dsigmoid(o1)/do1 =  act_o1 * (1-act_o1)		
-    do1/dw5=d(act_h1*dw5)/dw5+d(act_h2*dw6)/dw5=act_h1*1+act_h2*0=act_h1	
-    dE1/dact_o1=0.5*2*(t1 - act_o1)*-1 =act_o1 - t1
-    dact_o1/do1=dsigmoid(o1)/do1 =  act_o1 * (1-act_o1)	
-    do1/dw6=d(act_h1*dw5)/dw6+d(act_h2*dw6)/dw6=act_h1*0+act_h2*1=act_h2 
-    dEtotal/dw7= d(E1+E2)/dw7= dE2/dact_o2*dact_o2/do2*do1/dw7						
-    dE2/dact_o2=0.5*2*(t2 - act_o2)*-1 =act_o2 - t2						
-    dact_o2/do2=dsigmoid(o2)/do2 =  act_o2 * (1-act_o2)						
-    do2/dw7=d(act_h1*dw7)/dw7+d(act_h2*dw6)/dw7=act_h1*1+act_h2*0=act_h1						
-					
-    dEtotal/dw8= d(E1+E2)/dw8= dE2/dact_o2*dact_o2/do2*do1/dw8					
-    dE2/dact_o2=0.5*2*(t2 - act_o2)*-1 =act_o2 - t2					
-    dact_o2/do2=dsigmoid(o2)/do2 =  act_o2 * (1-act_o2)					
-    do2/dw8=d(act_h1*dw7)/dw8+d(act_h2*dw6)/dw8=act_h1*0+act_h2*1=act_h2					
-
-    do1/dact_h1=d(act_h1*w5+act_h2*w6)/dact_h1= w5							
-    do1/dact_h2=d(act_h1*w5+act_h2*w6)/dact_h2= w6							
-    dE1/dact_h1=   dE1/dact_o1*dact_o1/do1*do1/dact_h1  =  (act_o1 - t1)*act_o1*(1-act_o1) *w5							
-    dE1/dact_h2=   dE1/dact_o1*dact_o1/do1*do1/dact_h2  =  (act_o1 - t1)*act_o1*(1-act_o1) *w6		
-    do2/dact_h1=d(act_h1*w7+act_h2*w8)/dact_h1= w7							
-    do2/dact_h2=d(act_h1*w7+act_h2*w8)/dact_h2= w8							
-    dE2/dact_h1=   dE2/dact_o2*dact_o2/do2*do2/dact_h1  =  (act_o2 - t2)*act_o2*(1-act_o2) *w7							
-    dE2/dact_h2=   dE2/dact_o2*dact_o2/do2*do1/dact_h2  =  (act_o2 - t2)*act_o2*(1-act_o2) *w8					
-    dEtotal/dact_h1= d(E1+E2)/dact_h1= dE1/dact_h1+ dE2/dact_h1=     (act_o1 - t1)*act_o1*(1-act_o1) *w5 + (act_o2 - t2)*act_o2*(1-act_o2) *w7										
-    dEtotal/dact_h2= d(E1+E2)/dact_h2= dE1/dact_h2+ dE2/dact_h2=     (act_o1 - t1)*act_o1*(1-act_o1) *w6 + (act_o2 - t2)*act_o2*(1-act_o2) *w8										
-	dact_h1/dh1= act_h1*(1-act_h1)
-    dact_h2/dh2= act_h2*(1-act_h2)   
-    dh1/dw1=i1	
-    dh1/dw2=i2		
-    dh2/dw3=i1		
-    dh2/dw4=i2	
-
-    dEtotal/dw1 = ((act_o1 - t1)*act_o1*(1-act_o1) *w5 + (act_o2 - t2)*act_o2*(1-act_o2) *w7) * act_h1*(1-act_h1)*i1						
-    dEtotal/dw2 = ((act_o1 - t1)*act_o1*(1-act_o1) *w5 + (act_o2 - t2)*act_o2*(1-act_o2) *w7) * act_h1*(1-act_h1)*i2						
-    dEtotal/dw3 = (act_o1 - t1)*act_o1*(1-act_o1) *w6 + (act_o2 - t2)*act_o2*(1-act_o2) *w8) *act_h2*(1-act_h2) * i1						
-    dEtotal/dw4 = (act_o1 - t1)*act_o1*(1-act_o1) *w6 + (act_o2 - t2)*act_o2*(1-act_o2) *w8) *act_h2*(1-act_h2) * i2						
-    dEtotal/dw5 = (act_o1 - t1)*act_o1*(1-act_o1)*act_h1 	
-    dEtotal/dw6 = (act_o1 - t1)*act_o1*(1-act_o1)*act_h2 
-    dEtotal/dw7 = (act_o2 - t2)*act_o2*(1-act_o2)*act_h1 						
-    dEtotal/dw8 = (act_o2 - t2)*act_o2*(1-act_o2)*act_h2
-    
-    w1 = old_w1 - learning_rate * dEtotal/dw1
-    w2 = old_w2 - learning_rate * dEtotal/dw2
-    w3 = old_w3 - learning_rate * dEtotal/dw3
-    w4 = old_w4 - learning_rate * dEtotal/dw4
-    w5 = old_w5 - learning_rate * dEtotal/dw5
-    w6 = old_w6 - learning_rate * dEtotal/dw6
-    w7 = old_w7 - learning_rate * dEtotal/dw7
-    w8 = old_w8 - learning_rate * dEtotal/dw8
-
-Image from Excel 
-
-![Capture](https://user-images.githubusercontent.com/53977148/137503326-f124687a-bdb6-4c0f-bd37-c37c1c743d61.PNG)
-
-![Capture1](https://user-images.githubusercontent.com/53977148/137502273-740bb820-a4b2-41fb-a3d1-638d3b3102e6.PNG)
-
-![Capture3](https://user-images.githubusercontent.com/53977148/137502016-82f599d9-7fb5-4ebf-8774-329228560a62.PNG)
-
-![Capture4](https://user-images.githubusercontent.com/53977148/137502046-7afa8b28-4b3e-4db7-83d2-b8b8b702d35c.PNG)
-
-![Capture5](https://user-images.githubusercontent.com/53977148/137502060-660f36bf-c614-4ac2-8093-bafa43dd6135.PNG)
-
-![Capture6](https://user-images.githubusercontent.com/53977148/137502115-f542bae8-6322-42b6-828e-c47006a88cc9.PNG)
-
-![Capture7](https://user-images.githubusercontent.com/53977148/137502163-a6e5d92d-ecea-4e3e-8e33-3638a46a1417.PNG)
-
-Error graph with Learning Rate 0.1 
-
-![lr_0 1](https://user-images.githubusercontent.com/53977148/137502861-f3c1483a-316e-487a-a65f-6b891c50348c.PNG)
-
-Error graph with Learning Rate 0.2
-
-![lr_0 2](https://user-images.githubusercontent.com/53977148/137502866-34cc2084-9784-4020-bec9-cb1139c081df.PNG)
-
-Error graph with Learning Rate 0.5 
-
-![lr_0 5](https://user-images.githubusercontent.com/53977148/137502873-1dc2ac1b-d102-4e3e-92a6-c8e841579d94.PNG)
-
-Error graph with Learning Rate 0.8
-
-![lr_0 8](https://user-images.githubusercontent.com/53977148/137503028-7148e8ff-d5ad-4fb5-ac37-5fb8a002f30d.PNG)
-
-Error graph with Learning Rate 1 
-
-![lr_1](https://user-images.githubusercontent.com/53977148/137503040-f8bd63da-c4ef-462e-a30e-e93db96a68fe.PNG)
-
-Error graph with Learning Rate 2 
-
-![lr_2](https://user-images.githubusercontent.com/53977148/137503045-0d059ed6-a137-4c3a-a692-958ad6edd180.PNG)
-
-
-
-----------------------------------------------------PART- 2 -----------------------------------------------------
+# S5
 
 Data Overview
 
@@ -149,102 +12,296 @@ MNIST ("Modified National Institute of Standards and Technology") dataset of com
   Design the model architecture for MNIST with following constraint :
     
     99.4% validation accuracy
-    Less than 20k Parameters
-    Less than 20 Epochs
-    Have used BN, Dropout, a Fully connected layer, have used GAP. 
+    Less than 10k Parameters
+    Less than 15 Epochs
+
+
+Step 1: 
+   
+       
+
+
+     1 - Changes done:
+
+        1 - Get the basic setup
+
+        2 - Set Transforms
+
+             Model Summary : 
+       
+        Layer (type)               Output Shape         Param #
+
+            Conv2d-1           [-1, 16, 26, 26]             144
+              ReLU-2           [-1, 16, 26, 26]               0
+            Conv2d-3           [-1, 32, 24, 24]           4,608
+              ReLU-4           [-1, 32, 24, 24]               0
+            Conv2d-5           [-1, 64, 22, 22]          18,432
+              ReLU-6           [-1, 64, 22, 22]               0
+         MaxPool2d-7           [-1, 64, 11, 11]               0
+            Conv2d-8           [-1, 16, 11, 11]           1,024
+              ReLU-9           [-1, 16, 11, 11]               0
+           Conv2d-10             [-1, 64, 9, 9]           9,216
+             ReLU-11             [-1, 64, 9, 9]               0
+           Conv2d-12             [-1, 64, 7, 7]          36,864
+             ReLU-13             [-1, 64, 7, 7]               0
+           Conv2d-14             [-1, 10, 7, 7]             640
+             ReLU-15             [-1, 10, 7, 7]               0
+           Conv2d-16             [-1, 10, 1, 1]           4,900
  
- Model Architecture 1 : With CNN and Linear NN at the last layer  
+     Total params: 75,828
+     Trainable params: 75,828
+     Non-trainable params: 0
+     Input size (MB): 0.00
+     Forward/backward pass size (MB): 1.14
+     Params size (MB): 0.29
+     Estimated Total Size (MB): 1.43
 
-![image](https://user-images.githubusercontent.com/70502759/212446930-4278830f-1108-4b80-8b08-5a9a4f20f5f3.png)
+     2 - Set Data Loader
+
+     3 - Set Basic Working Code
+
+     4 - Set Basic Training & Test Loop
+
+     5 - Results:
+
+         1 - Parameters: 75,828
+         2 - Best Training Accuracy: 99.16
+         3 - Best Test Accuracy: 98.72
+
+     6 - Inference:
+
+         1 - Model Parameters is more and it's a heavy model . 
+         2 - Model is over-fitting , we will make our model lighter in next step
 
 
-     Training Logs :
-          
-               loss=0.25780144333839417 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.50it/s]
+Step 2 : 
+    
 
-      Test set: Average loss: 0.0711, Accuracy: 9785/10000 (97.850%)
+    1 - Changes done:
 
-      loss=0.13843071460723877 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.31it/s]
+         1 - Added Batch-norm to increase model efficiency and make learning easier.
+             There is overfitting, hence added Regularization with the help of  Dropout , which interns help us in reducing overfitting
 
-      Test set: Average loss: 0.0411, Accuracy: 9878/10000 (98.780%)
+           Model Summary : 
+    
+        Layer (type)               Output Shape         Param #
 
-      loss=0.1913510411977768 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.85it/s]
+            Conv2d-1            [-1, 8, 26, 26]              72
+       BatchNorm2d-2            [-1, 8, 26, 26]              16
+              ReLU-3            [-1, 8, 26, 26]               0
+            Conv2d-4            [-1, 8, 24, 24]             576
+       BatchNorm2d-5            [-1, 8, 24, 24]              16
+              ReLU-6            [-1, 8, 24, 24]               0
+            Conv2d-7            [-1, 8, 22, 22]             576
+       BatchNorm2d-8            [-1, 8, 22, 22]              16
+           Dropout-9            [-1, 8, 22, 22]               0
+             ReLU-10            [-1, 8, 22, 22]               0
+        MaxPool2d-11            [-1, 8, 11, 11]               0
+           Conv2d-12             [-1, 16, 9, 9]           1,152
+      BatchNorm2d-13             [-1, 16, 9, 9]              32
+          Dropout-14             [-1, 16, 9, 9]               0
+             ReLU-15             [-1, 16, 9, 9]               0
+           Conv2d-16              [-1, 8, 7, 7]           1,152
+      BatchNorm2d-17              [-1, 8, 7, 7]              16
+          Dropout-18              [-1, 8, 7, 7]               0
+             ReLU-19              [-1, 8, 7, 7]               0
+           Conv2d-20             [-1, 10, 5, 5]             720
+      BatchNorm2d-21             [-1, 10, 5, 5]              20
+          Dropout-22             [-1, 10, 5, 5]               0
+             ReLU-23             [-1, 10, 5, 5]               0
+           Conv2d-24             [-1, 10, 1, 1]           2,500
 
-      Test set: Average loss: 0.0365, Accuracy: 9877/10000 (98.770%)
+    Total params: 6,864
+    Trainable params: 6,864
+    Non-trainable params: 0
+    Input size (MB): 0.00
+    Forward/backward pass size (MB): 0.41
+    Params size (MB): 0.03
+    Estimated Total Size (MB): 0.44
 
-      loss=0.08599496632814407 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.57it/s]
 
-      Test set: Average loss: 0.0363, Accuracy: 9868/10000 (98.680%)
+    2 - Results:
 
-      loss=0.14034642279148102 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.78it/s]
+         1 - Parameters: 6,864
+         2 - Best Training Accuracy: 99.02
+         3 - Best Test Accuracy: 99.28
 
-      Test set: Average loss: 0.0305, Accuracy: 9896/10000 (98.960%)
+    3 - Inference:
 
-      loss=0.05263226106762886 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.59it/s]
+             1 - We could see batch-norm help us in enhancing the model efficiency 
+             2 - We could see dropout helps us in reducing overfitting . 
+                 We could see the model perform slightly better on test data .
+             3 - If we push this model further there is a high chance we can achieve the target of 99.4
+             4 - We are also not using GAP, but depending on a BIG sized kernel at the last layer we will fix this in next step .
 
-      Test set: Average loss: 0.0326, Accuracy: 9892/10000 (98.920%)
 
-      loss=0.057123538106679916 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 32.16it/s]
+Step 3 : 
 
-      Test set: Average loss: 0.0277, Accuracy: 9908/10000 (99.080%)
 
-      loss=0.04599980637431145 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.71it/s]
+     1 - Changes done:
 
-      Test set: Average loss: 0.0265, Accuracy: 9916/10000 (99.160%)
+         1 - Added GAP and remove the last gig size kernel And then Increase model capacity by adding more layers at the end.
 
-      loss=0.09477110952138901 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.53it/s]
+      Model Summary : 
 
-      Test set: Average loss: 0.0265, Accuracy: 9909/10000 (99.090%)
 
-      loss=0.04694877564907074 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.56it/s]
+        Layer (type)               Output Shape         Param #
 
-      Test set: Average loss: 0.0243, Accuracy: 9916/10000 (99.160%)
+            Conv2d-1            [-1, 8, 26, 26]              72
+       BatchNorm2d-2            [-1, 8, 26, 26]              16
+              ReLU-3            [-1, 8, 26, 26]               0
+            Conv2d-4            [-1, 8, 24, 24]             576
+       BatchNorm2d-5            [-1, 8, 24, 24]              16
+              ReLU-6            [-1, 8, 24, 24]               0
+            Conv2d-7            [-1, 8, 22, 22]             576
+       BatchNorm2d-8            [-1, 8, 22, 22]              16
+           Dropout-9            [-1, 8, 22, 22]               0
+             ReLU-10            [-1, 8, 22, 22]               0
+        MaxPool2d-11            [-1, 8, 11, 11]               0
+           Conv2d-12             [-1, 16, 9, 9]           1,152
+      BatchNorm2d-13             [-1, 16, 9, 9]              32
+          Dropout-14             [-1, 16, 9, 9]               0
+             ReLU-15             [-1, 16, 9, 9]               0
+           Conv2d-16             [-1, 16, 7, 7]           2,304
+      BatchNorm2d-17             [-1, 16, 7, 7]              32
+          Dropout-18             [-1, 16, 7, 7]               0
+             ReLU-19             [-1, 16, 7, 7]               0
+           Conv2d-20              [-1, 8, 7, 7]             128
+      BatchNorm2d-21              [-1, 8, 7, 7]              16
+          Dropout-22              [-1, 8, 7, 7]               0
+             ReLU-23              [-1, 8, 7, 7]               0
+           Conv2d-24             [-1, 32, 5, 5]           2,304
+      BatchNorm2d-25             [-1, 32, 5, 5]              64
+          Dropout-26             [-1, 32, 5, 5]               0
+             ReLU-27             [-1, 32, 5, 5]               0
+           Conv2d-28             [-1, 16, 5, 5]             512
+      BatchNorm2d-29             [-1, 16, 5, 5]              32
+          Dropout-30             [-1, 16, 5, 5]               0
+             ReLU-31             [-1, 16, 5, 5]               0
+        AvgPool2d-32             [-1, 16, 1, 1]               0
+           Conv2d-33             [-1, 10, 1, 1]             160
 
-      loss=0.007439501117914915 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.78it/s]
+     Total params: 8,008
+     Trainable params: 8,008
+     Non-trainable params: 0
 
-      Test set: Average loss: 0.0273, Accuracy: 9901/10000 (99.010%)
+     Input size (MB): 0.00
+     Forward/backward pass size (MB): 0.47
+     Params size (MB): 0.03
+     Estimated Total Size (MB): 0.50
 
-      loss=0.007313624490052462 batch_id=468: 100%|██████████| 469/469 [00:15<00:00, 30.11it/s]
+     2 - Changes done:
 
-      Test set: Average loss: 0.0231, Accuracy: 9919/10000 (99.190%)
+         1 - Parameters: 8008
 
-      loss=0.06205302104353905 batch_id=468: 100%|██████████| 469/469 [00:15<00:00, 31.05it/s]
+         2 - Best Training Accuracy: 99.40 (At EPOCH -14)
 
-      Test set: Average loss: 0.0250, Accuracy: 9921/10000 (99.210%)
+         3 - Best Test Accuracy: 99.37 (At EPOCH -14)
 
-      loss=0.03933703526854515 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.52it/s]
+     3 - Inference:
 
-      Test set: Average loss: 0.0284, Accuracy: 9910/10000 (99.100%)
+         1 - Adding Global Average Pooling reduces model parameters i.e interns
+             reduced model capacity , hence a reduction in performance is expected.
+             Then we have decided to further increase the model capacity .
+         2 - Value of drop out (.10) did not allow training accuracy beyond 
+             98.80 - 99.01. Hence we have decided to keep very low values of 
+             dropout(.007) which help us increase the training accuracy .
+        3 - The model did not showing over-fitting possibly DropOut can be 
+            ignore , rather removing it completely we have decided to keep it 
+            with very less dropout percentage
 
-      loss=0.11958245187997818 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.89it/s]
+           
 
-      Test set: Average loss: 0.0261, Accuracy: 9910/10000 (99.100%)
+Step 4 :
+   
+    1 - Changes done: 
+     
+        1 - Image augmentation can help us generate more data set , hence we have
+         added rotation to the image
+        2 - Try LR Scheduler to Achive High Accuracy
 
-      loss=0.07976437360048294 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.71it/s]
+             Model Summary : 
 
-      Test set: Average loss: 0.0261, Accuracy: 9911/10000 (99.110%)
+        Layer (type)               Output Shape         Param #
 
-      loss=0.02198120206594467 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.37it/s]
+            Conv2d-1            [-1, 8, 26, 26]              72
+       BatchNorm2d-2            [-1, 8, 26, 26]              16
+           Dropout-3            [-1, 8, 26, 26]               0
+              ReLU-4            [-1, 8, 26, 26]               0
+            Conv2d-5            [-1, 8, 24, 24]             576
+       BatchNorm2d-6            [-1, 8, 24, 24]              16
+           Dropout-7            [-1, 8, 24, 24]               0
+              ReLU-8            [-1, 8, 24, 24]               0
+            Conv2d-9            [-1, 8, 22, 22]             576
+      BatchNorm2d-10            [-1, 8, 22, 22]              16
+          Dropout-11            [-1, 8, 22, 22]               0
+             ReLU-12            [-1, 8, 22, 22]               0
+        MaxPool2d-13            [-1, 8, 11, 11]               0
+           Conv2d-14             [-1, 13, 9, 9]             936
+      BatchNorm2d-15             [-1, 13, 9, 9]              26
+          Dropout-16             [-1, 13, 9, 9]               0
+             ReLU-17             [-1, 13, 9, 9]               0
+           Conv2d-18             [-1, 14, 7, 7]           1,638
+      BatchNorm2d-19             [-1, 14, 7, 7]              28
+          Dropout-20             [-1, 14, 7, 7]               0
+             ReLU-21             [-1, 14, 7, 7]               0
+           Conv2d-22              [-1, 8, 7, 7]             112
+      BatchNorm2d-23              [-1, 8, 7, 7]              16
+          Dropout-24              [-1, 8, 7, 7]               0
+             ReLU-25              [-1, 8, 7, 7]               0
+           Conv2d-26             [-1, 26, 5, 5]           1,872
+      BatchNorm2d-27             [-1, 26, 5, 5]              52
+          Dropout-28             [-1, 26, 5, 5]               0
+             ReLU-29             [-1, 26, 5, 5]               0
+           Conv2d-30             [-1, 50, 5, 5]           1,300
+      BatchNorm2d-31             [-1, 50, 5, 5]             100
+          Dropout-32             [-1, 50, 5, 5]               0
+             ReLU-33             [-1, 50, 5, 5]               0
+        AvgPool2d-34             [-1, 50, 1, 1]               0
+           Conv2d-35             [-1, 10, 1, 1]             500
 
-      Test set: Average loss: 0.0230, Accuracy: 9922/10000 (99.220%)
+    Total params: 7,852
+    Trainable params: 7,852
+    Non-trainable params: 0
 
-      loss=0.016140375286340714 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.68it/s]
+    Input size (MB): 0.00
+    Forward/backward pass size (MB): 0.55
+    Params size (MB): 0.03
+    Estimated Total Size (MB): 0.59
+   
 
-      Test set: Average loss: 0.0253, Accuracy: 9914/10000 (99.140%)
+    2 - Results:
 
-      loss=0.020877815783023834 batch_id=468: 100%|██████████| 469/469 [00:14<00:00, 31.53it/s]
+        1 - Parameters: 8k
+        2 - Best Train Accuracy: 99.32 (At EPOCH - 14 , StepLR step_size=2, gamma=0.6)
+        3 - Best Test Accuracy: 99.46  (At EPOCH - 11 , StepLR step_size=2, gamma=0.6)
 
-      Test set: Average loss: 0.0262, Accuracy: 9917/10000 (99.170%)
+    3 - Inference: 
+     
+     1- The model is under-fitting now. This is fine, as we know we have made
+        our train data harder by adding image augmentation
+     
+     2 - The test accuracy is also up, which means our test data had few images
+         which had transformation difference w.r.t. train dataset . 
+     
+     3 - The test  accuracy is not consistent across the different nearby epoch.
+         This we have fix by tweaking the value of learning rate .
+     
+     4-  Finding a good LR schedule is hard.
+         Initially we tried with learning rate 0. 01 . Above Learning rate with
+         Scheduler help us to achieve the highest train accuracy of 99.10 and
+         test accuracy of 99.39. As training accuracy is less if we can somehow
+         increase this accuracy then overall model accuracy on test data can 
+         also be increased .Hence we have started exploring with learning rate
+         0. 1 . We have tried to make it effective by  reducing LR by 0.6 after
+         the 2th  epoch.  Above Learning rate with Scheduler help us to achieve
+         the highest test  accuracy of 99.46.
  
-
-          
-
-      Result 
-
-      Highest Accuracy with above architecture is around 99.10 to 99.22  
+     5- The model shows consistant 99.4% accuracy for last few epochs
 
 
-      
+  
+
 ## Tech Stack
 
 Client: Python, Pytorch, Numpy
