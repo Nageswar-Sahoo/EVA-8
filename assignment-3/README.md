@@ -80,8 +80,8 @@ Step 1:
      5 - Results:
 
          1 - Parameters: 10,970
-         2 - Best Training Accuracy: 99.75
-         3 - Best Test Accuracy: 99.29
+         2 - Best Training Accuracy: 99.76
+         3 - Best Test Accuracy: 99.14
 
      6 - Inference:
 
