@@ -88,8 +88,33 @@ Step 1:
   
          1 - Model is slightly over-fitting as traing accuracy is high and  gap between training and testing accuracy is more ,
              if we increase training accuracy also we will not acive accuracy of 99.4%  
-         2 - Also from loss and accuracy diagram its looks like learning rate is bit high as its fluctuating 
-             
+         2 - Also from loss and accuracy diagram its looks like learning rate is bit high as its fluctuating
+         
+      7 - few traing logs 
+      
+    EPOCH: 9
+    Loss=0.005559805314987898 Batch_id=468 Accuracy=99.62: 100%|██████████| 469/469 [00:15<00:00, 30.33it/s]
+    Test set: Average loss: 0.0290, Accuracy: 9914/10000 (99.14%)
+
+    EPOCH: 10
+    Loss=0.03548713028430939 Batch_id=468 Accuracy=99.62: 100%|██████████| 469/469 [00:15<00:00, 30.37it/s]
+    Test set: Average loss: 0.0297, Accuracy: 9907/10000 (99.07%)
+
+    EPOCH: 11
+    Loss=0.0037630165461450815 Batch_id=468 Accuracy=99.71: 100%|██████████| 469/469 [00:15<00:00, 30.18it/s]
+    Test set: Average loss: 0.0274, Accuracy: 9906/10000 (99.06%)
+
+    EPOCH: 12
+    Loss=0.01413320004940033 Batch_id=468 Accuracy=99.71: 100%|██████████| 469/469 [00:15<00:00, 30.27it/s]
+    Test set: Average loss: 0.0281, Accuracy: 9912/10000 (99.12%)
+
+    EPOCH: 13
+    Loss=0.004992724861949682 Batch_id=468 Accuracy=99.75: 100%|██████████| 469/469 [00:15<00:00, 30.17it/s]
+    Test set: Average loss: 0.0317, Accuracy: 9907/10000 (99.07%)
+
+    EPOCH: 14
+    Loss=0.006040344480425119 Batch_id=468 Accuracy=99.76: 100%|██████████| 469/469 [00:16<00:00, 27.86it/s]
+    Test set: Average loss: 0.0313, Accuracy: 9904/10000 (99.04%)
              
  ![image](https://user-images.githubusercontent.com/70502759/213490135-c4a9c00b-230a-4911-865e-dd2a2270863d.png)
 
@@ -292,11 +317,14 @@ Step 3 :
 
 Step 4 :
    
+     Design the model architecture for MNIST with following constraint :
+    
+    99.4% validation accuracy
+    Less than 10k Parameters
+    Less than 15 Epochs
     1 - Changes done: 
      
-        1 - Image augmentation can help us generate more data set , hence we have
-         added rotation to the image
-        2 - Try LR Scheduler to Achive High Accuracy
+       We have design the model architecture with 7k parameter to acive the 99.4% test accuracy with 15 epochs 
 
              Model Summary : 
 
@@ -369,7 +397,7 @@ Step 4 :
  
      5- The model shows consistant 99.4% accuracy for last few epochs
      
-   4 - few traing logs 
+     4 - few traing logs 
        
     EPOCH: 9
     Loss=0.057361483573913574 Batch_id=468 Accuracy=99.18: 100%|██████████| 469/469 [00:17<00:00, 27.16it/s]
