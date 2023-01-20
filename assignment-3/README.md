@@ -342,9 +342,9 @@ Step 4 :
 
     2 - Results:
 
-        1 - Parameters: 8k
-        2 - Best Train Accuracy: 99.32 (At EPOCH - 14 , StepLR step_size=2, gamma=0.6)
-        3 - Best Test Accuracy: 99.46  (At EPOCH - 11 , StepLR step_size=2, gamma=0.6)
+        1 - Parameters: 7k
+        2 - Best Train Accuracy: 99.24 (At EPOCH - 13)
+        3 - Best Test Accuracy: 99.46  (At EPOCH - 12 )
 
     3 - Inference: 
      
@@ -371,7 +371,7 @@ Step 4 :
      
    4 - few traing logs 
        
-           EPOCH: 9
+    EPOCH: 9
     Loss=0.057361483573913574 Batch_id=468 Accuracy=99.18: 100%|██████████| 469/469 [00:17<00:00, 27.16it/s]
     Test set: Average loss: 0.0216, Accuracy: 9936/10000 (99.36%)
 
