@@ -103,48 +103,52 @@ Step 2 :
              Also adding gap layer to remove the large kernel layer from last
 
            Model Summary : 
-    
-        Layer (type)               Output Shape         Param #
-
-            Conv2d-1            [-1, 8, 26, 26]              72
-       BatchNorm2d-2            [-1, 8, 26, 26]              16
-              ReLU-3            [-1, 8, 26, 26]               0
-            Conv2d-4            [-1, 8, 24, 24]             576
-       BatchNorm2d-5            [-1, 8, 24, 24]              16
-              ReLU-6            [-1, 8, 24, 24]               0
-            Conv2d-7            [-1, 8, 22, 22]             576
-       BatchNorm2d-8            [-1, 8, 22, 22]              16
-           Dropout-9            [-1, 8, 22, 22]               0
-             ReLU-10            [-1, 8, 22, 22]               0
-        MaxPool2d-11            [-1, 8, 11, 11]               0
-           Conv2d-12             [-1, 16, 9, 9]           1,152
-      BatchNorm2d-13             [-1, 16, 9, 9]              32
-          Dropout-14             [-1, 16, 9, 9]               0
-             ReLU-15             [-1, 16, 9, 9]               0
-           Conv2d-16              [-1, 8, 7, 7]           1,152
-      BatchNorm2d-17              [-1, 8, 7, 7]              16
-          Dropout-18              [-1, 8, 7, 7]               0
-             ReLU-19              [-1, 8, 7, 7]               0
-           Conv2d-20             [-1, 10, 5, 5]             720
-      BatchNorm2d-21             [-1, 10, 5, 5]              20
-          Dropout-22             [-1, 10, 5, 5]               0
-             ReLU-23             [-1, 10, 5, 5]               0
-           Conv2d-24             [-1, 10, 1, 1]           2,500
-
-    Total params: 6,864
-    Trainable params: 6,864
+   
+       ----------------------------------------------------------------
+            Layer (type)               Output Shape         Param #
+    ================================================================
+            Conv2d-1           [-1, 15, 26, 26]             135
+       BatchNorm2d-2           [-1, 15, 26, 26]              30
+              ReLU-3           [-1, 15, 26, 26]               0
+            Conv2d-4           [-1, 10, 24, 24]           1,350
+       BatchNorm2d-5           [-1, 10, 24, 24]              20
+              ReLU-6           [-1, 10, 24, 24]               0
+            Conv2d-7           [-1, 25, 22, 22]           2,250
+       BatchNorm2d-8           [-1, 25, 22, 22]              50
+              ReLU-9           [-1, 25, 22, 22]               0
+          Dropout-10           [-1, 25, 22, 22]               0
+        MaxPool2d-11           [-1, 25, 11, 11]               0
+           Conv2d-12           [-1, 20, 11, 11]             500
+      BatchNorm2d-13           [-1, 20, 11, 11]              40
+             ReLU-14           [-1, 20, 11, 11]               0
+           Conv2d-15             [-1, 15, 9, 9]           2,700
+      BatchNorm2d-16             [-1, 15, 9, 9]              30
+             ReLU-17             [-1, 15, 9, 9]               0
+           Conv2d-18             [-1, 10, 7, 7]           1,350
+      BatchNorm2d-19             [-1, 10, 7, 7]              20
+             ReLU-20             [-1, 10, 7, 7]               0
+          Dropout-21             [-1, 10, 7, 7]               0
+           Conv2d-22             [-1, 10, 5, 5]             900
+      BatchNorm2d-23             [-1, 10, 5, 5]              20
+             ReLU-24             [-1, 10, 5, 5]               0
+        AvgPool2d-25             [-1, 10, 1, 1]               0
+    ================================================================
+    Total params: 9,395
+    Trainable params: 9,395
     Non-trainable params: 0
+    ----------------------------------------------------------------
     Input size (MB): 0.00
-    Forward/backward pass size (MB): 0.41
-    Params size (MB): 0.03
-    Estimated Total Size (MB): 0.44
+    Forward/backward pass size (MB): 0.86
+    Params size (MB): 0.04
+    Estimated Total Size (MB): 0.90
+    ----------------------------------------------------------------
 
 
     2 - Results:
 
-         1 - Parameters: 6,864
-         2 - Best Training Accuracy: 99.02
-         3 - Best Test Accuracy: 99.28
+         1 - Parameters: 9,395
+         2 - Best Training Accuracy: 99.35
+         3 - Best Test Accuracy: 99.30
 
     3 - Inference:
 
@@ -153,6 +157,32 @@ Step 2 :
                  We could see the model perform slightly better on test data .
              3 - If we push this model further there is a high chance we can achieve the target of 99.4
              4 - We are also not using GAP, but depending on a BIG sized kernel at the last layer we will fix this in next step .
+    4 - last training logs
+         
+    EPOCH: 9
+    Loss=0.002981663914397359 Batch_id=468 Accuracy=99.23: 100%|██████████| 469/469 [00:13<00:00, 35.50it/s]
+    Test set: Average loss: 0.0267, Accuracy: 9924/10000 (99.24%)
+
+    EPOCH: 10
+    Loss=0.023660933598876 Batch_id=468 Accuracy=99.21: 100%|██████████| 469/469 [00:13<00:00, 35.07it/s]
+    Test set: Average loss: 0.0249, Accuracy: 9928/10000 (99.28%)
+
+    EPOCH: 11
+    Loss=0.017755737528204918 Batch_id=468 Accuracy=99.29: 100%|██████████| 469/469 [00:13<00:00, 34.85it/s]
+    Test set: Average loss: 0.0253, Accuracy: 9921/10000 (99.21%)
+
+    EPOCH: 12
+    Loss=0.009737336076796055 Batch_id=468 Accuracy=99.31: 100%|██████████| 469/469 [00:13<00:00, 34.56it/s]
+    Test set: Average loss: 0.0290, Accuracy: 9915/10000 (99.15%)
+
+    EPOCH: 13
+    Loss=0.028894586488604546 Batch_id=468 Accuracy=99.35: 100%|██████████| 469/469 [00:14<00:00, 33.02it/s]
+    Test set: Average loss: 0.0252, Accuracy: 9930/10000 (99.30%)
+
+    EPOCH: 14
+    Loss=0.016243664547801018 Batch_id=468 Accuracy=99.34: 100%|██████████| 469/469 [00:13<00:00, 35.24it/s]
+    Test set: Average loss: 0.0279, Accuracy: 9921/10000 (99.21%)
+![image](https://user-images.githubusercontent.com/70502759/213735181-69d08b01-e2d8-4afe-a9a9-5f360c11b6bc.png)
 
 
 Step 3 : 
@@ -165,50 +195,6 @@ Step 3 :
       Model Summary : 
 
 
-        Layer (type)               Output Shape         Param #
-
-            Conv2d-1            [-1, 8, 26, 26]              72
-       BatchNorm2d-2            [-1, 8, 26, 26]              16
-              ReLU-3            [-1, 8, 26, 26]               0
-            Conv2d-4            [-1, 8, 24, 24]             576
-       BatchNorm2d-5            [-1, 8, 24, 24]              16
-              ReLU-6            [-1, 8, 24, 24]               0
-            Conv2d-7            [-1, 8, 22, 22]             576
-       BatchNorm2d-8            [-1, 8, 22, 22]              16
-           Dropout-9            [-1, 8, 22, 22]               0
-             ReLU-10            [-1, 8, 22, 22]               0
-        MaxPool2d-11            [-1, 8, 11, 11]               0
-           Conv2d-12             [-1, 16, 9, 9]           1,152
-      BatchNorm2d-13             [-1, 16, 9, 9]              32
-          Dropout-14             [-1, 16, 9, 9]               0
-             ReLU-15             [-1, 16, 9, 9]               0
-           Conv2d-16             [-1, 16, 7, 7]           2,304
-      BatchNorm2d-17             [-1, 16, 7, 7]              32
-          Dropout-18             [-1, 16, 7, 7]               0
-             ReLU-19             [-1, 16, 7, 7]               0
-           Conv2d-20              [-1, 8, 7, 7]             128
-      BatchNorm2d-21              [-1, 8, 7, 7]              16
-          Dropout-22              [-1, 8, 7, 7]               0
-             ReLU-23              [-1, 8, 7, 7]               0
-           Conv2d-24             [-1, 32, 5, 5]           2,304
-      BatchNorm2d-25             [-1, 32, 5, 5]              64
-          Dropout-26             [-1, 32, 5, 5]               0
-             ReLU-27             [-1, 32, 5, 5]               0
-           Conv2d-28             [-1, 16, 5, 5]             512
-      BatchNorm2d-29             [-1, 16, 5, 5]              32
-          Dropout-30             [-1, 16, 5, 5]               0
-             ReLU-31             [-1, 16, 5, 5]               0
-        AvgPool2d-32             [-1, 16, 1, 1]               0
-           Conv2d-33             [-1, 10, 1, 1]             160
-
-     Total params: 8,008
-     Trainable params: 8,008
-     Non-trainable params: 0
-
-     Input size (MB): 0.00
-     Forward/backward pass size (MB): 0.47
-     Params size (MB): 0.03
-     Estimated Total Size (MB): 0.50
 
      2 - Changes done:
 
