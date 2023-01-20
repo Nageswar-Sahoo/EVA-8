@@ -187,6 +187,44 @@ Step 2 :
 
 Step 3 : 
 
+       ----------------------------------------------------------------
+            Layer (type)               Output Shape         Param #
+    ================================================================
+            Conv2d-1           [-1, 15, 26, 26]             135
+       BatchNorm2d-2           [-1, 15, 26, 26]              30
+              ReLU-3           [-1, 15, 26, 26]               0
+            Conv2d-4           [-1, 10, 24, 24]           1,350
+       BatchNorm2d-5           [-1, 10, 24, 24]              20
+              ReLU-6           [-1, 10, 24, 24]               0
+            Conv2d-7           [-1, 25, 22, 22]           2,250
+       BatchNorm2d-8           [-1, 25, 22, 22]              50
+              ReLU-9           [-1, 25, 22, 22]               0
+          Dropout-10           [-1, 25, 22, 22]               0
+        MaxPool2d-11           [-1, 25, 11, 11]               0
+           Conv2d-12           [-1, 20, 11, 11]             500
+      BatchNorm2d-13           [-1, 20, 11, 11]              40
+             ReLU-14           [-1, 20, 11, 11]               0
+           Conv2d-15             [-1, 15, 9, 9]           2,700
+      BatchNorm2d-16             [-1, 15, 9, 9]              30
+             ReLU-17             [-1, 15, 9, 9]               0
+           Conv2d-18             [-1, 10, 7, 7]           1,350
+      BatchNorm2d-19             [-1, 10, 7, 7]              20
+             ReLU-20             [-1, 10, 7, 7]               0
+          Dropout-21             [-1, 10, 7, 7]               0
+           Conv2d-22             [-1, 10, 5, 5]             900
+      BatchNorm2d-23             [-1, 10, 5, 5]              20
+             ReLU-24             [-1, 10, 5, 5]               0
+        AvgPool2d-25             [-1, 10, 1, 1]               0
+    ================================================================
+    Total params: 9,395
+    Trainable params: 9,395
+    Non-trainable params: 0
+    ----------------------------------------------------------------
+    Input size (MB): 0.00
+    Forward/backward pass size (MB): 0.86
+    Params size (MB): 0.04
+    Estimated Total Size (MB): 0.90
+    ----------------------------------------------------------------
 
      1 - Changes done:
 
@@ -198,11 +236,11 @@ Step 3 :
 
      2 - Changes done:
 
-         1 - Parameters: 8008
+         1 - Parameters: 9395
 
-         2 - Best Training Accuracy: 99.40 (At EPOCH -14)
+         2 - Best Training Accuracy: 99.34 (At EPOCH -14)
 
-         3 - Best Test Accuracy: 99.37 (At EPOCH -14)
+         3 - Best Test Accuracy: 99.34 (At EPOCH -13)
 
      3 - Inference:
 
@@ -215,6 +253,40 @@ Step 3 :
         3 - The model did not showing over-fitting possibly DropOut can be 
             ignore , rather removing it completely we have decided to keep it 
             with very less dropout percentage
+      
+      4 - few traing logs
+      
+          EPOCH: 8
+    Loss=0.06473712623119354 Batch_id=468 Accuracy=99.13: 100%|██████████| 469/469 [00:18<00:00, 25.54it/s]
+        Test set: Average loss: 0.0210, Accuracy: 9938/10000 (99.38%)
+
+    EPOCH: 9
+    Loss=0.020384931936860085 Batch_id=468 Accuracy=99.23: 100%|██████████| 469/469 [00:18<00:00, 24.80it/s]
+        Test set: Average loss: 0.0186, Accuracy: 9940/10000 (99.40%)
+
+    EPOCH: 10
+    Loss=0.004158003721386194 Batch_id=468 Accuracy=99.25: 100%|██████████| 469/469 [00:18<00:00, 25.08it/s]
+        Test set: Average loss: 0.0203, Accuracy: 9938/10000 (99.38%)
+
+    EPOCH: 11
+    Loss=0.003466661088168621 Batch_id=468 Accuracy=99.20: 100%|██████████| 469/469 [00:18<00:00, 25.77it/s]
+        Test set: Average loss: 0.0199, Accuracy: 9932/10000 (99.32%)
+
+    EPOCH: 12
+    Loss=0.0140219172462821 Batch_id=468 Accuracy=99.33: 100%|██████████| 469/469 [00:18<00:00, 25.75it/s]
+        Test set: Average loss: 0.0190, Accuracy: 9939/10000 (99.39%)
+
+    EPOCH: 13
+    Loss=0.01336562167853117 Batch_id=468 Accuracy=99.32: 100%|██████████| 469/469 [00:17<00:00, 26.35it/s]
+        Test set: Average loss: 0.0178, Accuracy: 9952/10000 (99.52%)
+
+    EPOCH: 14
+    Loss=0.009256711229681969 Batch_id=468 Accuracy=99.34: 100%|██████████| 469/469 [00:18<00:00, 25.92it/s]
+        Test set: Average loss: 0.0182, Accuracy: 9951/10000 (99.51%)
+        
+        
+ ![image](https://user-images.githubusercontent.com/70502759/213736485-9b943a08-2ac0-4158-8bae-88823c67a94d.png)
+
 
            
 
