@@ -177,11 +177,14 @@ Step 2 :
 
     3 - Inference:
 
-             1 - We could see batch-norm help us in enhancing the model efficiency 
-             2 - We could see dropout helps us in reducing overfitting . 
+             1 - Adding Global Average Pooling reduces model parameters i.e interns
+             reduced model capacity , hence a reduction in performance is expected.
+             Then we have decided to further increase the model capacity .
+             
+             2 - We could see dropout helps us in reducing overfitting .              
                  We could see the model perform slightly better on test data .
+                 
              3 - If we push this model further there is a high chance we can achieve the target of 99.4
-             4 - We are also not using GAP, but depending on a BIG sized kernel at the last layer we will fix this in next step .
     4 - last training logs
          
     EPOCH: 9
@@ -253,7 +256,7 @@ Step 3 :
 
      1 - Changes done:
 
-         1 - Added GAP and remove the last gig size kernel And then Increase model capacity by adding more layers at the end.
+         1 - Added image augumentation startegy and trainined the model with different learning rate 
 
       Model Summary : 
 
@@ -269,9 +272,7 @@ Step 3 :
 
      3 - Inference:
 
-         1 - Adding Global Average Pooling reduces model parameters i.e interns
-             reduced model capacity , hence a reduction in performance is expected.
-             Then we have decided to further increase the model capacity .
+
          2 - Value of drop out (.10) did not allow training accuracy beyond 
              98.80 - 99.01. Hence we have decided to keep very low values of 
              dropout(.007) which help us increase the training accuracy .
