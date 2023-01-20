@@ -300,52 +300,44 @@ Step 4 :
 
              Model Summary : 
 
+    ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
-
-            Conv2d-1            [-1, 8, 26, 26]              72
-       BatchNorm2d-2            [-1, 8, 26, 26]              16
-           Dropout-3            [-1, 8, 26, 26]               0
-              ReLU-4            [-1, 8, 26, 26]               0
-            Conv2d-5            [-1, 8, 24, 24]             576
-       BatchNorm2d-6            [-1, 8, 24, 24]              16
-           Dropout-7            [-1, 8, 24, 24]               0
-              ReLU-8            [-1, 8, 24, 24]               0
-            Conv2d-9            [-1, 8, 22, 22]             576
-      BatchNorm2d-10            [-1, 8, 22, 22]              16
-          Dropout-11            [-1, 8, 22, 22]               0
-             ReLU-12            [-1, 8, 22, 22]               0
-        MaxPool2d-13            [-1, 8, 11, 11]               0
-           Conv2d-14             [-1, 13, 9, 9]             936
-      BatchNorm2d-15             [-1, 13, 9, 9]              26
-          Dropout-16             [-1, 13, 9, 9]               0
-             ReLU-17             [-1, 13, 9, 9]               0
-           Conv2d-18             [-1, 14, 7, 7]           1,638
-      BatchNorm2d-19             [-1, 14, 7, 7]              28
-          Dropout-20             [-1, 14, 7, 7]               0
-             ReLU-21             [-1, 14, 7, 7]               0
-           Conv2d-22              [-1, 8, 7, 7]             112
-      BatchNorm2d-23              [-1, 8, 7, 7]              16
-          Dropout-24              [-1, 8, 7, 7]               0
-             ReLU-25              [-1, 8, 7, 7]               0
-           Conv2d-26             [-1, 26, 5, 5]           1,872
-      BatchNorm2d-27             [-1, 26, 5, 5]              52
-          Dropout-28             [-1, 26, 5, 5]               0
-             ReLU-29             [-1, 26, 5, 5]               0
-           Conv2d-30             [-1, 50, 5, 5]           1,300
-      BatchNorm2d-31             [-1, 50, 5, 5]             100
-          Dropout-32             [-1, 50, 5, 5]               0
-             ReLU-33             [-1, 50, 5, 5]               0
-        AvgPool2d-34             [-1, 50, 1, 1]               0
-           Conv2d-35             [-1, 10, 1, 1]             500
-
-    Total params: 7,852
-    Trainable params: 7,852
+    ================================================================
+            Conv2d-1           [-1, 15, 26, 26]             135
+       BatchNorm2d-2           [-1, 15, 26, 26]              30
+              ReLU-3           [-1, 15, 26, 26]               0
+            Conv2d-4           [-1, 10, 24, 24]           1,350
+       BatchNorm2d-5           [-1, 10, 24, 24]              20
+              ReLU-6           [-1, 10, 24, 24]               0
+            Conv2d-7           [-1, 16, 22, 22]           1,440
+       BatchNorm2d-8           [-1, 16, 22, 22]              32
+              ReLU-9           [-1, 16, 22, 22]               0
+          Dropout-10           [-1, 16, 22, 22]               0
+        MaxPool2d-11           [-1, 16, 11, 11]               0
+           Conv2d-12           [-1, 20, 11, 11]             320
+      BatchNorm2d-13           [-1, 20, 11, 11]              40
+             ReLU-14           [-1, 20, 11, 11]               0
+           Conv2d-15             [-1, 10, 9, 9]           1,800
+      BatchNorm2d-16             [-1, 10, 9, 9]              20
+             ReLU-17             [-1, 10, 9, 9]               0
+           Conv2d-18             [-1, 10, 7, 7]             900
+      BatchNorm2d-19             [-1, 10, 7, 7]              20
+             ReLU-20             [-1, 10, 7, 7]               0
+          Dropout-21             [-1, 10, 7, 7]               0
+           Conv2d-22             [-1, 10, 5, 5]             900
+      BatchNorm2d-23             [-1, 10, 5, 5]              20
+             ReLU-24             [-1, 10, 5, 5]               0
+        AvgPool2d-25             [-1, 10, 1, 1]               0
+    ================================================================
+    Total params: 7,027
+    Trainable params: 7,027
     Non-trainable params: 0
-
+    ----------------------------------------------------------------
     Input size (MB): 0.00
-    Forward/backward pass size (MB): 0.55
+    Forward/backward pass size (MB): 0.71
     Params size (MB): 0.03
-    Estimated Total Size (MB): 0.59
+    Estimated Total Size (MB): 0.74
+    ----------------------------------------------------------------
    
 
     2 - Results:
@@ -376,7 +368,34 @@ Step 4 :
          the highest test  accuracy of 99.46.
  
      5- The model shows consistant 99.4% accuracy for last few epochs
+     
+   4 - few traing logs 
+       
+           EPOCH: 9
+    Loss=0.057361483573913574 Batch_id=468 Accuracy=99.18: 100%|██████████| 469/469 [00:17<00:00, 27.16it/s]
+    Test set: Average loss: 0.0216, Accuracy: 9936/10000 (99.36%)
 
+    EPOCH: 10
+    Loss=0.02381567843258381 Batch_id=468 Accuracy=99.20: 100%|██████████| 469/469 [00:17<00:00, 27.19it/s]
+    Test set: Average loss: 0.0204, Accuracy: 9944/10000 (99.44%)
+
+    EPOCH: 11
+    Loss=0.01638067327439785 Batch_id=468 Accuracy=99.23: 100%|██████████| 469/469 [00:17<00:00, 26.77it/s]
+    Test set: Average loss: 0.0186, Accuracy: 9945/10000 (99.45%)
+
+    EPOCH: 12
+    Loss=0.03239172324538231 Batch_id=468 Accuracy=99.22: 100%|██████████| 469/469 [00:17<00:00, 27.24it/s]
+    Test set: Average loss: 0.0201, Accuracy: 9938/10000 (99.38%)
+
+    EPOCH: 13
+    Loss=0.016828304156661034 Batch_id=468 Accuracy=99.20: 100%|██████████| 469/469 [00:17<00:00, 26.57it/s]
+    Test set: Average loss: 0.0200, Accuracy: 9939/10000 (99.39%)
+
+    EPOCH: 14
+    Loss=0.0031423012260347605 Batch_id=468 Accuracy=99.27: 100%|██████████| 469/469 [00:18<00:00, 25.20it/s]
+    Test set: Average loss: 0.0194, Accuracy: 9941/10000 (99.41%)
+
+![image](https://user-images.githubusercontent.com/70502759/213739071-b817e8d0-5e6b-4f35-8d76-bbd96cb613e8.png)
 
   
 
