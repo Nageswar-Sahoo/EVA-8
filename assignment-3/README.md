@@ -215,6 +215,14 @@ Step 2 :
 
 Step 3 : 
 
+
+
+     1 - Changes done:
+
+         1 - Added image augumentation startegy to make the training harder (use random rotation as initial analysis sugested few images are slightly rotated to                    different angale) and trainined the model with different learning rate (like .2,.1,.01 ) along with decrease learning rate (STEPLR)
+
+      Model Summary : 
+
        ----------------------------------------------------------------
             Layer (type)               Output Shape         Param #
     ================================================================
@@ -254,13 +262,6 @@ Step 3 :
     Estimated Total Size (MB): 0.90
     ----------------------------------------------------------------
 
-     1 - Changes done:
-
-         1 - Added image augumentation startegy and trainined the model with different learning rate 
-
-      Model Summary : 
-
-
 
      2 - Changes done:
 
@@ -268,17 +269,34 @@ Step 3 :
 
          2 - Best Training Accuracy: 99.34 (At EPOCH -14)
 
-         3 - Best Test Accuracy: 99.34 (At EPOCH -13)
+         3 - Best Test Accuracy: 99.52 (At EPOCH -13)
 
      3 - Inference:
 
 
-         2 - Value of drop out (.10) did not allow training accuracy beyond 
+          1 - Value of drop out (.20) did not allow training accuracy beyond 
              98.80 - 99.01. Hence we have decided to keep very low values of 
-             dropout(.007) which help us increase the training accuracy .
-        3 - The model did not showing over-fitting possibly DropOut can be 
-            ignore , rather removing it completely we have decided to keep it 
-            with very less dropout percentage
+             dropout(.05) which help us increase the training accuracy .
+             
+          2 - The model is under-fitting now. This is fine, as we know we have made
+              our train data harder by adding image augmentation. 
+          
+          3 - The test  accuracy is not consistent across the different nearby epoch.
+               This we have fix by tweaking the value of learning rate . with LR.01 we have acive the 
+               best test accuracy . 
+               
+          4-  Finding a good LR schedule is hard.
+              Initially we tried with learning rate 0. 01 . Above Learning rate with
+              Scheduler help us to achieve the highest train accuracy of 99.10 and
+              test accuracy of 99.39. As training accuracy is less if we can somehow
+              increase this accuracy then overall model accuracy on test data can 
+              also be increased .Hence we have started exploring with learning rate
+              0. 1 . We have tried to make it effective by  reducing LR by 0.6 after
+              the 2th  epoch.  Above Learning rate with Scheduler help us to achieve
+              the highest test  accuracy of 99.46.
+          5 - The model shows consistant 99.4% accuracy for last few epochs   
+          
+          6 - If we push this model further there is a high chance we can increase accuracy further
       
       4 - few traing logs
       
@@ -318,14 +336,11 @@ Step 3 :
 
 Step 4 :
    
-     Design the model architecture for MNIST with following constraint :
-    
-    99.4% validation accuracy
-    Less than 10k Parameters
-    Less than 15 Epochs
+
     1 - Changes done: 
      
-       We have design the model architecture with 7k parameter to acive the 99.4% test accuracy with 15 epochs 
+       We have design the model architecture with 7k parameter to acive the 99.4% test accuracy with 15 epochs .
+     
 
              Model Summary : 
 
@@ -377,26 +392,20 @@ Step 4 :
 
     3 - Inference: 
      
-     1- The model is under-fitting now. This is fine, as we know we have made
-        our train data harder by adding image augmentation
-     
-     2 - The test accuracy is also up, which means our test data had few images
-         which had transformation difference w.r.t. train dataset . 
-     
-     3 - The test  accuracy is not consistent across the different nearby epoch.
-         This we have fix by tweaking the value of learning rate .
-     
-     4-  Finding a good LR schedule is hard.
-         Initially we tried with learning rate 0. 01 . Above Learning rate with
-         Scheduler help us to achieve the highest train accuracy of 99.10 and
-         test accuracy of 99.39. As training accuracy is less if we can somehow
-         increase this accuracy then overall model accuracy on test data can 
-         also be increased .Hence we have started exploring with learning rate
-         0. 1 . We have tried to make it effective by  reducing LR by 0.6 after
-         the 2th  epoch.  Above Learning rate with Scheduler help us to achieve
-         the highest test  accuracy of 99.46.
+          1 - Value of drop out (.20) did not allow training accuracy beyond 
+             98.80 - 99.01. Hence we have decided to keep very low values of 
+             dropout(.05) which help us increase the training accuracy .
+             
+          2 - The model is under-fitting now. This is fine, as we know we have made
+              our train data harder by adding image augmentation. 
+          
+          3 - The test  accuracy is not consistent across the different nearby epoch.
+               This we have fix by tweaking the value of learning rate . with LR.01 we have acive the 
+               best test accuracy . 
  
-     5- The model shows consistant 99.4% accuracy for last few epochs
+          4- The model shows consistant 99.4% accuracy for last few epochs
+           
+          5 - If we push this model further there is a high chance we can increase accuracy further
      
      4 - few traing logs 
        
