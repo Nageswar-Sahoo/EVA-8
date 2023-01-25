@@ -292,22 +292,21 @@ Estimated Total Size (MB): 0.47
 
 ### Test/Validation Loss for all 3 models together
 
-![](/Images/S6_Images/Loss_Curve.jpg)
-
+![image](https://user-images.githubusercontent.com/70502759/214536987-aae1ee82-3542-49e0-bb1d-e39461b7792e.png)
 
 ### Test/Validation Accuracy for all 3 models together
 
-![](/Images/S6_Images/Acc_Curve.jpg)
-
+![image](https://user-images.githubusercontent.com/70502759/214537019-a9d8879c-03f6-4ac4-9207-75b2e4f8506c.png)
 
 ### Train/Test Results for Version -1 (BN + L1 Model)
-![](/Images/S6_Images/BN_Curve.png)
-
+![image](https://user-images.githubusercontent.com/70502759/214537083-ae880817-9e20-402b-996c-61f502fb583b.png)
 ### Train/Test Results for Version -2 (Layer Normalization Model)
-![](/Images/S6_Images/LN_Curve.png)
+
+![image](https://user-images.githubusercontent.com/70502759/214537146-00ed7972-aeda-4e7a-8255-aefb23d62c5c.png)
 
 ### Train/Test Results for Version -1 (Group Normalization Model)
-![](/Images/S6_Images/GN_Curve.png)
+
+![image](https://user-images.githubusercontent.com/70502759/214537189-c448266d-47b3-4080-911b-36c040d771c9.png)
 
 
 
@@ -316,11 +315,13 @@ Estimated Total Size (MB): 0.47
 ### The details of predicted vs actual value and the corresponding image have been shown in the notebook. The below grid are list of 10 unclassified images by the 3 models.
 
 ### Images misclassified by Version -1 Model (BN + L1)
-![](/Images/S6_Images/BN_Unclassified.jpg)
+![image](https://user-images.githubusercontent.com/70502759/214537245-00ed6acc-99ac-41a2-9903-691362d13d85.png)
+
 ### Images misclassified by Version -2 Model (Layer Normalization)
-![](/Images/S6_Images/LN_Unclassified.jpg)
+![image](https://user-images.githubusercontent.com/70502759/214537287-a0c0e4d7-29dc-464d-ae44-0b071d2faa76.png)
+
 ### Images misclassified by Version -3 Model (Group Normalization)
-![](/Images/S6_Images/GN_Unclassified.jpg)
+![image](https://user-images.githubusercontent.com/70502759/214537335-15dc9562-3d18-402a-8d00-1165eef7cb23.png)
 
 
 
