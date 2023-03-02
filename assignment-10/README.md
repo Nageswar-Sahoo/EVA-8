@@ -9,7 +9,34 @@
     Share the training logs
     Share the gradcam images for 10 misclassified images
 
+Training logs :
 
+   ConvMixer: Epoch: 0 | Train Acc: 0.2113, Test Acc: 0.3401, Time: 63.5, lr: 0.001000
+   ConvMixer: Epoch: 1 | Train Acc: 0.3549, Test Acc: 0.4517, Time: 56.7, lr: 0.002000
+   ConvMixer: Epoch: 2 | Train Acc: 0.4503, Test Acc: 0.5340, Time: 58.8, lr: 0.003000
+   ConvMixer: Epoch: 3 | Train Acc: 0.4976, Test Acc: 0.5534, Time: 58.8, lr: 0.004000
+   ConvMixer: Epoch: 4 | Train Acc: 0.5192, Test Acc: 0.5637, Time: 57.2, lr: 0.005000
+   ConvMixer: Epoch: 5 | Train Acc: 0.5384, Test Acc: 0.5985, Time: 60.6, lr: 0.006000
+   ConvMixer: Epoch: 6 | Train Acc: 0.5482, Test Acc: 0.5960, Time: 58.3, lr: 0.007000
+   ConvMixer: Epoch: 7 | Train Acc: 0.5612, Test Acc: 0.6031, Time: 57.8, lr: 0.008000
+   ConvMixer: Epoch: 8 | Train Acc: 0.5714, Test Acc: 0.6128, Time: 58.7, lr: 0.009000
+   ConvMixer: Epoch: 9 | Train Acc: 0.5854, Test Acc: 0.6298, Time: 57.5, lr: 0.010000
+   ConvMixer: Epoch: 10 | Train Acc: 0.5947, Test Acc: 0.6266, Time: 58.2, lr: 0.009050
+   ConvMixer: Epoch: 11 | Train Acc: 0.6161, Test Acc: 0.6650, Time: 57.9, lr: 0.008100
+   ConvMixer: Epoch: 12 | Train Acc: 0.6343, Test Acc: 0.6699, Time: 58.1, lr: 0.007150
+   ConvMixer: Epoch: 13 | Train Acc: 0.6542, Test Acc: 0.6888, Time: 58.0, lr: 0.006200
+   ConvMixer: Epoch: 14 | Train Acc: 0.6728, Test Acc: 0.7074, Time: 58.7, lr: 0.005250
+   ConvMixer: Epoch: 15 | Train Acc: 0.6854, Test Acc: 0.7390, Time: 59.3, lr: 0.004300
+   ConvMixer: Epoch: 16 | Train Acc: 0.7035, Test Acc: 0.7308, Time: 60.0, lr: 0.003350
+   ConvMixer: Epoch: 17 | Train Acc: 0.7140, Test Acc: 0.7463, Time: 56.1, lr: 0.002400
+   ConvMixer: Epoch: 18 | Train Acc: 0.7297, Test Acc: 0.7570, Time: 54.6, lr: 0.001450
+   ConvMixer: Epoch: 19 | Train Acc: 0.7446, Test Acc: 0.7709, Time: 55.3, lr: 0.000500
+   ConvMixer: Epoch: 20 | Train Acc: 0.7522, Test Acc: 0.7784, Time: 55.3, lr: 0.000400
+   ConvMixer: Epoch: 21 | Train Acc: 0.7558, Test Acc: 0.7776, Time: 55.4, lr: 0.000300
+   ConvMixer: Epoch: 22 | Train Acc: 0.7563, Test Acc: 0.7825, Time: 54.6, lr: 0.000200
+   ConvMixer: Epoch: 23 | Train Acc: 0.7623, Test Acc: 0.7783, Time: 53.5, lr: 0.000100
+   ConvMixer: Epoch: 24 | Train Acc: 0.7628, Test Acc: 0.7803, Time: 54.2, lr: 0.000000
+   
 Misclassified and GradCam Images Gallery
 
 Misclassified images were generated and for each misclassified image a gradcam image was generated for the misclassified class the model predicted.
